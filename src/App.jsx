@@ -14,6 +14,11 @@ import Subject from './pages/Subject'
 import AssignClassTeacher from './pages/AssignClassTeacher'
 import ClassRoutineCreate from './pages/ClassRoutineCreate'
 import Timetable from './pages/Timetable'
+import Accounting from './pages/Accounting'
+import Inventory from './pages/Inventory'
+import Transport from './pages/Transport'
+import Library from './pages/Library'
+import Gallery from './pages/Gallery'
 
 function App() {
   return (
@@ -33,6 +38,11 @@ function App() {
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<Settings />} />
         <Route path="timetable" element={<Timetable />} />
+        <Route path="accounting" element={<Accounting />} />
+        <Route path="inventory" element={<Inventory />} />
+        <Route path="transport" element={<Transport />} />
+        <Route path="library" element={<Library />} />
+        <Route path="gallery" element={<Gallery />} />
       </Route>
     </Routes>
   )

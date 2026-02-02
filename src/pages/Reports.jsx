@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { StudentReport, AttendanceReport, FeeFinanceReport, ResultAnalytics, ExportTools } from '../components/reports'
 
 function Reports() {
   const [reports] = useState([
@@ -71,6 +72,15 @@ function Reports() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Report components */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <StudentReport />
+        <AttendanceReport />
+        <FeeFinanceReport />
+        <ResultAnalytics />
+        <ExportTools />
       </div>
     </div>
   )

@@ -1,0 +1,5 @@
+export { default as FeeManagement } from './FeeManagement'
+export { default as SalaryManagement } from './SalaryManagement'
+export { default as ExpenseTracker } from './ExpenseTracker'
+export { default as FinancialReports } from './FinancialReports'
+export { default as BudgetPlanning } from './BudgetPlanning'

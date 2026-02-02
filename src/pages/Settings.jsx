@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { SchoolProfileSetting, AcademicYearSetup, UserRoleSetting, BackupDataSecuritySetting } from '../components/settings'
 
 function Settings() {
   const [settings, setSettings] = useState([
@@ -111,6 +112,14 @@ function Settings() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Advanced settings components */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <SchoolProfileSetting />
+        <AcademicYearSetup />
+        <UserRoleSetting />
+        <BackupDataSecuritySetting />
       </div>
     </div>
   )

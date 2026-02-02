@@ -13,7 +13,12 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
     { name: 'Classes', icon: '📚', path: '/classes' },
     { name: 'Attendance', icon: '✅', path: '/attendance' },
     { name: 'Timetable', icon: '📅', path: '/timetable' },
+    { name: 'Inventory', icon: '📦', path: '/inventory' },
+    { name: 'Transport', icon: '💼', path: '/transport' },
     { name: 'Fees', icon: '💰', path: '/fees' },
+    { name: 'Accounting & Finance', icon: '💼', path: '/accounting' },
+    { name: 'Library', icon: '📚', path: '/library' },
+    { name: 'Gallery', icon: '🖼️', path: '/gallery' },
     { name: 'Reports', icon: '📈', path: '/reports' },
     { name: 'Settings', icon: '⚙️', path: '/settings' },
   ]
