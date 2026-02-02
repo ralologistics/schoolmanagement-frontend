@@ -13,6 +13,7 @@ import Section from './pages/Section'
 import Subject from './pages/Subject'
 import AssignClassTeacher from './pages/AssignClassTeacher'
 import ClassRoutineCreate from './pages/ClassRoutineCreate'
+import Timetable from './pages/Timetable'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="fees" element={<Fees />} />
         <Route path="reports" element={<Reports />} />
         <Route path="settings" element={<Settings />} />
+        <Route path="timetable" element={<Timetable />} />
       </Route>
     </Routes>
   )

@@ -1,26 +1,27 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 function Sidebar({ sidebarOpen, setSidebarOpen }) {
+  const location = useLocation()
   const navItems = [
-    { name: 'Dashboard', icon: '📊', path: '/', active: true },
-    { name: 'Section', icon: '📋', path: '/section', active: false },
-    { name: 'Subject', icon: '📖', path: '/subject', active: false },
-    { name: 'Assign Class Teacher', icon: '👩‍🏫', path: '/assign-class-teacher', active: false },
-    { name: 'Class Routine', icon: '📅', path: '/class-routine-create', active: false },
-    { name: 'Students', icon: '👨‍🎓', path: '/students', active: false },
-    { name: 'Teachers', icon: '👩‍🏫', path: '/teachers', active: false },
-    { name: 'Classes', icon: '📚', path: '/classes', active: false },
-    { name: 'Attendance', icon: '✅', path: '/attendance', active: false },
-    { name: 'Fees', icon: '💰', path: '/fees', active: false },
-    { name: 'Reports', icon: '📈', path: '/reports', active: false },
-    { name: 'Settings', icon: '⚙️', path: '/settings', active: false },
+    { name: 'Dashboard', icon: '📊', path: '/' },
+    { name: 'Section', icon: '📋', path: '/section' },
+    { name: 'Subject', icon: '📖', path: '/subject' },
+    { name: 'Assign Class Teacher', icon: '👩‍🏫', path: '/assign-class-teacher' },
+    { name: 'Class Routine', icon: '📅', path: '/class-routine-create' },
+    { name: 'Students', icon: '👨‍🎓', path: '/students' },
+    { name: 'Teachers', icon: '👩‍🏫', path: '/teachers' },
+    { name: 'Classes', icon: '📚', path: '/classes' },
+    { name: 'Attendance', icon: '✅', path: '/attendance' },
+    { name: 'Timetable', icon: '📅', path: '/timetable' },
+    { name: 'Fees', icon: '💰', path: '/fees' },
+    { name: 'Reports', icon: '📈', path: '/reports' },
+    { name: 'Settings', icon: '⚙️', path: '/settings' },
   ]
 
   return (
     <aside
-      className={`${
-        sidebarOpen ? 'w-64' : 'w-20'
-      } bg-slate-800 text-white flex flex-col transition-all duration-300 ease-in-out shrink-0`}
+      className={`${sidebarOpen ? 'w-64' : 'w-20'
+        } bg-slate-800 text-white flex flex-col transition-all duration-300 ease-in-out shrink-0`}
     >
       {/* Logo */}
       <div className="p-4 border-b border-slate-700 flex items-center justify-between">
@@ -37,22 +38,23 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
 
       {/* Navigation */}
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto">
-        {navItems.map((item) => (
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${
-              item.active
+        {navItems.map((item) => {
+          const isActive = location.pathname === item.path
+          return (
+            <Link
+              key={item.name}
+              to={item.path}
+              className={`flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors ${isActive
                 ? 'bg-slate-600 text-white'
                 : 'text-slate-300 hover:bg-slate-700 hover:text-white'
-            }`}
-          >
-            <span className="text-xl shrink-0">{item.icon}</span>
-            {sidebarOpen && <span className="font-medium">{item.name}</span>}
-          </Link>
-        ))}
+                }`}
+            >
+              <span className="text-xl shrink-0">{item.icon}</span>
+              {sidebarOpen && <span className="font-medium">{item.name}</span>}
+            </Link>
+          )
+        })}
       </nav>
-
       {/* User at bottom */}
       {sidebarOpen && (
         <div className="p-3 border-t border-slate-700">
