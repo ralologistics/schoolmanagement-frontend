@@ -19,6 +19,10 @@ import Inventory from './pages/Inventory'
 import Transport from './pages/Transport'
 import Library from './pages/Library'
 import Gallery from './pages/Gallery'
+import AcademicCalendar from './pages/AcademicCalendar'
+import Notices from './pages/Notices'
+import ParentPortal from './pages/ParentPortal'
+import NotificationsPage from './pages/Notifications'
 
 function App() {
   return (
@@ -31,7 +35,11 @@ function App() {
         <Route path="assign-class-teacher" element={<AssignClassTeacher />} />
         <Route path="class-routine-create" element={<ClassRoutineCreate />} />
         <Route path="students" element={<Students />} />
+        <Route path="parent-portal" element={<ParentPortal />} />
         <Route path="teachers" element={<Teachers />} />
+        <Route path="notifications" element={<NotificationsPage />} />
+        <Route path="calendar" element={<AcademicCalendar />} />
+        <Route path="notices" element={<Notices />} />
         <Route path="classes" element={<Classes />} />
         <Route path="attendance" element={<Attendance />} />
         <Route path="fees" element={<Fees />} />

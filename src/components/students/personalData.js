@@ -1,0 +1,48 @@
+// Demo personal details
+export const personalData = [
+    {
+        id: 1,
+        name: 'Aarav Patel',
+        dob: '2008-05-12',
+        gender: 'Male',
+        phone: '+91 98765 43210',
+        email: 'aarav@school.com',
+        address: '12 Rosewood Apartments, Ahmedabad, Gujarat',
+    },
+    {
+        id: 2,
+        name: 'Bhavna Singh',
+        dob: '2008-09-02',
+        gender: 'Female',
+        phone: '+91 91234 56789',
+        email: 'bhavna@school.com',
+        address: '45 Lakeview Colony, Jaipur, Rajasthan',
+    },
+    {
+        id: 3,
+        name: 'Chirag Kumar',
+        dob: '2009-02-18',
+        gender: 'Male',
+        phone: '+91 99887 66554',
+        email: 'chirag@school.com',
+        address: '7 Green Park, Lucknow, Uttar Pradesh',
+    },
+    {
+        id: 4,
+        name: 'Disha Sharma',
+        dob: '2008-12-29',
+        gender: 'Female',
+        phone: '+91 90123 45678',
+        email: 'disha@school.com',
+        address: '22 Sunrise Apartments, Pune, Maharashtra',
+    },
+    {
+        id: 5,
+        name: 'Eshan Verma',
+        dob: '2009-06-05',
+        gender: 'Male',
+        phone: '+91 93456 77889',
+        email: 'eshan@school.com',
+        address: '9 Hillcrest, Chandigarh',
+    },
+];

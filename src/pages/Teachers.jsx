@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { getTeachers, TeacherProfile } from '../components/teachers'
 
 function Teachers() {
-  const [teachers, setTeachers] = useState([
-    { id: 'T001', name: 'Rajesh Kumar', email: 'rajesh@school.com', phone: '9876543210', subject: 'Mathematics', qualification: 'M.Sc', experience: 8, status: 'Active' },
-    { id: 'T002', name: 'Priya Sharma', email: 'priya@school.com', phone: '9876543211', subject: 'English', qualification: 'M.A', experience: 6, status: 'Active' },
-    { id: 'T003', name: 'Amit Patel', email: 'amit@school.com', phone: '9876543212', subject: 'Science', qualification: 'B.Sc', experience: 5, status: 'Active' },
-    { id: 'T004', name: 'Neha Gupta', email: 'neha@school.com', phone: '9876543213', subject: 'History', qualification: 'M.A', experience: 7, status: 'Active' },
-    { id: 'T005', name: 'Vikram Singh', email: 'vikram@school.com', phone: '9876543214', subject: 'Computer Science', qualification: 'B.Tech', experience: 4, status: 'Inactive' },
-  ])
+  const [teachers, setTeachers] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [selected, setSelected] = useState(null)
+
+  useEffect(() => {
+    let mounted = true
+    getTeachers().then((data) => {
+      if (!mounted) return
+      setTeachers(data)
+      setLoading(false)
+    })
+    return () => (mounted = false)
+  }, [])
 
   const [showForm, setShowForm] = useState(false)
   const [editingId, setEditingId] = useState(null)
@@ -258,7 +265,11 @@ function Teachers() {
             </tr>
           </thead>
           <tbody>
-            {teachers.map((teacher) => (
+            {loading ? (
+              <tr>
+                <td colSpan={9} className="px-6 py-4 text-center text-sm text-slate-500">Loading teachers…</td>
+              </tr>
+            ) : (teachers.map((teacher) => (
               <tr key={teacher.id} className="border-b border-slate-200 hover:bg-slate-50 transition-colors">
                 <td className="px-6 py-3 text-sm text-slate-600 font-medium">{teacher.id}</td>
                 <td className="px-6 py-3 text-sm text-slate-800 font-medium">{teacher.name}</td>
@@ -269,18 +280,23 @@ function Teachers() {
                 <td className="px-6 py-3 text-sm text-slate-600">{teacher.experience} yrs</td>
                 <td className="px-6 py-3 text-sm">
                   <span className={`px-3 py-1 rounded-full text-xs font-semibold ${teacher.status === 'Active'
-                      ? 'bg-green-100 text-green-800'
-                      : teacher.status === 'Inactive'
-                        ? 'bg-red-100 text-red-800'
-                        : 'bg-yellow-100 text-yellow-800'
+                    ? 'bg-green-100 text-green-800'
+                    : teacher.status === 'Inactive'
+                      ? 'bg-red-100 text-red-800'
+                      : 'bg-yellow-100 text-yellow-800'
                     }`}>
                     {teacher.status}
                   </span>
                 </td>
                 <td className="px-6 py-3 text-sm">
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => handleEdit(teacher)}
+                    <button onClick={() => setSelected(teacher)}
+                      className="text-indigo-600 hover:text-indigo-800 font-semibold"
+                      title="View"
+                    >
+                      View
+                    </button>
+                    <button onClick={() => handleEdit(teacher)}
                       className="text-blue-600 hover:text-blue-800 font-semibold"
                       title="Edit"
                     >
@@ -296,7 +312,7 @@ function Teachers() {
                   </div>
                 </td>
               </tr>
-            ))}
+            )))}
           </tbody>
         </table>
       </div>
@@ -306,6 +322,16 @@ function Teachers() {
           No teachers found. Click "Add New Teacher" to create one.
         </div>
       )}
+
+      {selected ? (
+        <div>
+          <div className="flex items-center justify-between mt-6">
+            <h3 className="text-lg font-medium text-slate-800">Profile — {selected.name}</h3>
+            <button className="text-sm text-slate-500" onClick={() => setSelected(null)}>Close</button>
+          </div>
+          <TeacherProfile teacher={selected} />
+        </div>
+      ) : null}
     </div>
   )
 }

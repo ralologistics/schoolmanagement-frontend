@@ -9,15 +9,20 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
     { name: 'Assign Class Teacher', icon: '👩‍🏫', path: '/assign-class-teacher' },
     { name: 'Class Routine', icon: '📅', path: '/class-routine-create' },
     { name: 'Students', icon: '👨‍🎓', path: '/students' },
+    { name: 'Parent Portal', icon: '👪', path: '/parent-portal' },
     { name: 'Teachers', icon: '👩‍🏫', path: '/teachers' },
+    { name: 'Notifications', icon: '🔔', path: '/notifications' },
     { name: 'Classes', icon: '📚', path: '/classes' },
     { name: 'Attendance', icon: '✅', path: '/attendance' },
     { name: 'Timetable', icon: '📅', path: '/timetable' },
+
     { name: 'Inventory', icon: '📦', path: '/inventory' },
     { name: 'Transport', icon: '💼', path: '/transport' },
     { name: 'Fees', icon: '💰', path: '/fees' },
     { name: 'Accounting & Finance', icon: '💼', path: '/accounting' },
     { name: 'Library', icon: '📚', path: '/library' },
+    { name: 'Calendar', icon: '📅', path: '/calendar' },
+    { name: 'Notice', icon: '📚', path: '/notices' },
     { name: 'Gallery', icon: '🖼️', path: '/gallery' },
     { name: 'Reports', icon: '📈', path: '/reports' },
     { name: 'Settings', icon: '⚙️', path: '/settings' },
@@ -35,7 +40,7 @@ function Sidebar({ sidebarOpen, setSidebarOpen }) {
         ) : null}
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="p-2 rounded-lg hover:bg-slate-700 transition-colors"
+          className="p-2 rounded-lg hover:bg-slate-700 bg-slate-400 transition-colors"
         >
           {sidebarOpen ? '◀' : '▶'}
         </button>
